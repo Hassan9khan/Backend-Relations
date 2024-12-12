@@ -2,7 +2,8 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import cors from "cors";
-import router from "./src/routes/courseRoutes.js";
+import courseRoute from "./src/routes/courseRoutes.js";
+import studentRoute from "./src/routes/studentRoutes.js";
 import connectDB from "./src/db/index.js";
 
 
@@ -12,7 +13,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/v1", router);
+app.use("/api/v1", courseRoute);
+app.use("/api/v1", studentRoute);
 
 
 app.get("/", (req, res) => {

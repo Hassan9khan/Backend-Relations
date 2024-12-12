@@ -10,4 +10,9 @@ const addCourse = async (req, res) => {
 
 };
 
-export default addCourse
+const getCourse = async (req, res) => {
+    const course = await Course.find({}).populate("enrolledStudents");
+    res.json(course);
+  };
+
+export  { addCourse , getCourse }
