@@ -60,17 +60,17 @@ const getAllStudent = async (req, res) => {
   res.json({ data: students, length: students.length });
 };
 
-const sendEmail = async () => {
+const sendEmail = async (req , res) => {
   const info = await transporter.sendMail({
-    from: '"Hassan Ahmed 👻" <emmalee.ohara68@ethereal.email>', // sender address
-    to: "hassanahmed@gmail.com", // list of receivers
-    subject: "Subject Hello ✔", // Subject line
-    text: "123 Hello world?", // plain text body
-    html: "<b>1111 Hello world?</b>", // html body
+    from: '"Hassan Ahmed 👻" <emmalee.ohara68@ethereal.email>', 
+    to: "hassanahmed@gmail.com", 
+    subject: "Subject Hello ✔", 
+    text: "123 Hello world?", 
+    html: "<b>1111 Hello world?</b>", 
   });
 
   console.log("Message sent: %s", info.messageId);
-  // res.json({message: "email sent"})
+  res.status(200).json({message: "email sent"})
 };
 
 export { addStudent, getStudent, getAllStudent , sendEmail};
